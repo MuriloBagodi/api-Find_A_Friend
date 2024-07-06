@@ -1,0 +1,23 @@
+{
+  "name": "03-api-find-a-friend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.16.1",
+    "dotenv": "^16.4.5",
+    "fastify": "^4.28.1"
+  },
+  "devDependencies": {
+    "@rocketseat/eslint-config": "2.2.2",
+    "@types/node": "20.14.10",
+    "eslint": "9.6.0",
+    "prima": "0.0.1",
+    "typescript": "5.5.3"
+  }
+}
