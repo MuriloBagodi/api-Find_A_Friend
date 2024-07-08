@@ -1,7 +1,7 @@
 /* eslint-disable camelcase */
 import fastify from 'fastify'
-import { orgRoutes } from './http/Organization/routes'
+import { orgsRoutes } from './http/controllers/Orgs/orgs.routes'
 
 export const app = fastify()
 
-app.register(orgRoutes, { prefix: 'org' })
+app.register(orgsRoutes)
