@@ -6,7 +6,7 @@ Será desenvolvido uma api para ajudar pessoas a encontrar um pet e adota-lo
 
 ## RFs (Requisitos funcionais)
 
-- [ ] Deve ser possível se cadastrar como uma ORG
+- [x] Deve ser possível se cadastrar como uma ORG
 - [ ] Deve ser possível realizar login como uma ORG
 - [ ] Deve ser possível cadastrar um pet
 - [ ] Deve ser possível listar todos os pets disponíveis para adoção em uma cidade
@@ -24,9 +24,9 @@ Será desenvolvido uma api para ajudar pessoas a encontrar um pet e adota-lo
 
 ## RNFs (Requisitos não funcionais) - Requisitos no qual complementam a logica e o correto uso do app, evitar brechas
 
-- [ ] A senha do usuário precisa estar criptografada
-- [ ] A aplicação precisa ser desenvolvida com TypeScript
-- [ ] A aplicação precisa ser desenvolvida com NodeJs
-- [ ] Os dados da aplicação precisão estar persistidos em um banco PgSql
+- [x] A senha da ORG precisa estar criptografada
+- [x] A aplicação precisa ser desenvolvida com TypeScript
+- [x] A aplicação precisa ser desenvolvida com NodeJs
+- [x] Os dados da aplicação precisão estar persistidos em um banco PgSql
 - [ ] Todas as listas de dados devem estar paginadas com 20 items por pagina
 - [ ] Usuario deve ser identificado por um JWT (Jason web token)
