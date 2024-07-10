@@ -1,8 +1,6 @@
 import { InMemoryOrgsRepository } from '@/repository/in-memory/in-memory-orgs.repository'
 import { describe, beforeEach, it, expect } from 'vitest'
 import { makeOrg } from '@/tests/factory/make-org.factory'
-import { hash } from 'bcryptjs'
-import { InvalidCredentialsError } from '../errors/org-invalid-credentials.error'
 import { FetchNearbyUseCase } from '../fetch-nearby-orgs.use-case'
 
 let orgsRepository: InMemoryOrgsRepository
