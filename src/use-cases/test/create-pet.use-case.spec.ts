@@ -5,6 +5,7 @@ import { CreatePetUseCase } from '../create-pet.use-case'
 import { OrgsRepository } from '@/repository/orgs.repository'
 import { makeOrg } from '@/tests/factory/make-org.factory'
 import { makePet } from '@/tests/factory/make-pet.factory'
+import { OrgNotFoundError } from '../errors/org-not-found.error'
 
 let petsRepository: InMemoryPetsRepository
 let orgsRepository: OrgsRepository
@@ -24,5 +25,13 @@ describe('Create Org Use Case', () => {
 
     expect(pet.id).toEqual(expect.any(String))
     expect(petsRepository.items).toHaveLength(1)
+  })
+
+  it('should not be able to create a pet without a organization', async () => {
+    const pet = makePet()
+
+    await petsRepository.create(pet)
+
+    expect(sut.execute(pet)).rejects.toBeInstanceOf(OrgNotFoundError)
   })
 })
