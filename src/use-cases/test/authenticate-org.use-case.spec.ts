@@ -1,6 +1,5 @@
 import { InMemoryOrgsRepository } from '@/repository/in-memory/in-memory-orgs.repository'
 import { describe, beforeEach, it, expect } from 'vitest'
-import { CreateOrgUseCase } from '../create-org.use-case'
 import { AuthenticateOrgUseCase } from '../authenticate-org.use-case'
 import { makeOrg } from '@/tests/factory/make-org.factory'
 import { hash } from 'bcryptjs'
