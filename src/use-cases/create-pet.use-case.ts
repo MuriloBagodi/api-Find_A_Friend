@@ -1,7 +1,8 @@
-/* eslint-disable camelcase */
 import { Pet } from '@prisma/client'
 
 import { PetsRepository } from '@/repository/pets.repository'
+import { OrgsRepository } from '@/repository/orgs.repository'
+import { OrgNotFoundError } from './errors/org-not-found.error'
 
 interface CreatePetUseCaseRequest {
   id?: string
@@ -19,8 +20,10 @@ interface CreatePetUseCaseResponse {
 }
 
 export class CreatePetUseCase {
-  // eslint-disable-next-line no-useless-constructor
-  constructor(private petsRepository: PetsRepository) {}
+  constructor(
+    private petsRepository: PetsRepository,
+    private orgsRepository: OrgsRepository,
+  ) {}
 
   async execute({
     name,
@@ -31,6 +34,11 @@ export class CreatePetUseCase {
     environment,
     org_id,
   }: CreatePetUseCaseRequest): Promise<CreatePetUseCaseResponse> {
+    const org = await this.orgsRepository.findById(org_id)
+
+    if (!org) {
+      throw new OrgNotFoundError()
+    }
     const pet = await this.petsRepository.create({
       name,
       about,

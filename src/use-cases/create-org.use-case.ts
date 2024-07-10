@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import { Org } from '@prisma/client'
 
 import { OrgsRepository } from '@/repository/orgs.repository'
@@ -25,7 +24,6 @@ interface CreateOrgUseCaseResponse {
 }
 
 export class CreateOrgUseCase {
-  // eslint-disable-next-line no-useless-constructor
   constructor(private orgsRepository: OrgsRepository) {}
 
   async execute({

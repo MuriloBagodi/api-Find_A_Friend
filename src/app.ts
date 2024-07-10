@@ -1,4 +1,3 @@
-/* eslint-disable camelcase */
 import fastify from 'fastify'
 import { orgsRoutes } from './http/controllers/Orgs/orgs.routes'
 
