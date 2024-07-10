@@ -29,4 +29,6 @@ describe('Create Org Use Case', () => {
 
     expect(org.id).toEqual(expect.any(String))
   })
+
+  // TODO: Need to create a new test to validate if the user can create a org with the same email || Expect Error
 })
