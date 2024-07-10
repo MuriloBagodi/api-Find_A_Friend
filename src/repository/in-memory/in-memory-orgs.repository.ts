@@ -1,6 +1,7 @@
 import { Org, Prisma } from '@prisma/client'
 import { OrgsRepository } from '../orgs.repository'
 import { Decimal } from '@prisma/client/runtime/library'
+import { getDistanceBetweenCoordinates } from '@/use-cases/utils/get-distance-between-coordinates'
 
 export class InMemoryOrgsRepository implements OrgsRepository {
   public items: Org[] = []
@@ -8,6 +9,20 @@ export class InMemoryOrgsRepository implements OrgsRepository {
     const org = this.items.find((item) => item.email === email)
 
     return org || null
+  }
+
+  async findManyNearby(latitude: number, longitude: number) {
+    return this.items.filter((item) => {
+      const distance = getDistanceBetweenCoordinates(
+        { latitude, longitude },
+        {
+          latitude: item.latitude.toNumber(),
+          longitude: item.longitude.toNumber(),
+        },
+      )
+
+      return distance < 10
+    })
   }
 
   async findById(id: string) {
