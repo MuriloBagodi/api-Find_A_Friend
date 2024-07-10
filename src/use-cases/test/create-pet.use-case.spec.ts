@@ -8,11 +8,12 @@ import { makePet } from '@/tests/factory/make-pet.factory'
 import { OrgNotFoundError } from '../errors/org-not-found.error'
 
 let petsRepository: InMemoryPetsRepository
+let orgsRepositoryInMemory: InMemoryOrgsRepository
 let orgsRepository: OrgsRepository
 let sut: CreatePetUseCase
 describe('Create Org Use Case', () => {
   beforeEach(() => {
-    petsRepository = new InMemoryPetsRepository()
+    petsRepository = new InMemoryPetsRepository(orgsRepositoryInMemory)
     orgsRepository = new InMemoryOrgsRepository()
     // sut -> System under test
     sut = new CreatePetUseCase(petsRepository, orgsRepository)
