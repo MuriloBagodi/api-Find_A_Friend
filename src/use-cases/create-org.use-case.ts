@@ -10,11 +10,11 @@ interface CreateOrgUseCaseRequest {
   email: string
   whatsapp: string
   password: string
-  cep?: string
-  state?: string
-  city?: string
-  neighborhood?: string
-  street?: string
+  cep: string
+  state: string
+  city: string
+  neighborhood: string
+  street: string
   latitude: number
   longitude: number
 }

@@ -7,11 +7,11 @@ import { OrgNotFoundError } from './errors/org-not-found.error'
 interface CreatePetUseCaseRequest {
   id?: string
   name: string
-  about?: string | null
-  age?: string | null
-  size?: string | null
-  energy_level?: string | null
-  environment?: string | null
+  about: string
+  age: string
+  size: string
+  energy_level: string
+  environment: string
   org_id: string
 }
 

@@ -8,11 +8,11 @@ export async function createPetController(
 ) {
   const petBodySchema = z.object({
     name: z.string(),
-    about: z.string().nullable(),
-    age: z.string().nullable(),
-    size: z.string().nullable(),
-    energy_level: z.string().nullable(),
-    environment: z.string().nullable(),
+    about: z.string(),
+    age: z.string(),
+    size: z.string(),
+    energy_level: z.string(),
+    environment: z.string(),
     org_id: z.string(),
   })
 
