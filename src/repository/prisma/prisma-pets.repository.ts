@@ -26,6 +26,8 @@ export class PrismaPetsRepository implements PetsRepository {
           },
         },
       },
+      take: 20,
+      skip: (data.page - 1) * 20,
     })
 
     return pets

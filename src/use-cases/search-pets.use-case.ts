@@ -8,6 +8,7 @@ interface SearchPetsUseCaseRequest {
   energy_level?: string
   environment?: string
   city: string
+  page: number
 }
 
 interface SearchPetsUseCaseResponse {
@@ -23,6 +24,7 @@ export class SearchPetsUseCase {
     energy_level,
     environment,
     city,
+    page,
   }: SearchPetsUseCaseRequest): Promise<SearchPetsUseCaseResponse> {
     const pets = await this.petsRepository.findAll({
       age,
@@ -30,6 +32,7 @@ export class SearchPetsUseCase {
       energy_level,
       environment,
       city,
+      page,
     })
 
     return { pets }

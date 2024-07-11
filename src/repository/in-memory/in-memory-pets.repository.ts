@@ -24,15 +24,15 @@ export class InMemoryPetsRepository implements PetsRepository {
     const pets = this.items
       .filter((item) => orgsByCity.some((org) => org.id === item.org_id))
       .filter((item) => (data.age ? item.age === data.age : true))
+      .filter((item) => (data.size ? item.size === data.size : true))
       .filter((item) =>
         data.energy_level ? item.energy_level === data.energy_level : true,
       )
       .filter((item) =>
         data.environment ? item.environment === data.environment : true,
       )
-      .filter((item) => (data.size ? item.size === data.size : true))
-
-    return pets
+    console.log()
+    return pets.slice((data.page - 1) * 20, data.page * 20)
   }
 
   async findById(id: string) {

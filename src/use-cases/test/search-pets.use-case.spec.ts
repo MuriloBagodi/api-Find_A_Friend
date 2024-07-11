@@ -20,13 +20,22 @@ describe('Search Pet Use Case', () => {
     const org = await orgsRepository.create(makeOrg())
     await petsRepository.create(makePet({ org_id: org.id }))
     await petsRepository.create(makePet({ org_id: org.id }))
+    await petsRepository.create(makePet({ org_id: org.id }))
+    await petsRepository.create(makePet({ org_id: org.id }))
+    await petsRepository.create(makePet({ org_id: org.id }))
+    await petsRepository.create(makePet({ org_id: org.id }))
+    await petsRepository.create(makePet({ org_id: org.id }))
+    await petsRepository.create(makePet({ org_id: org.id }))
+    await petsRepository.create(makePet({ org_id: org.id }))
+    await petsRepository.create(makePet({ org_id: org.id }))
 
     const diffOrg = await orgsRepository.create(makeOrg())
 
     await petsRepository.create(makePet({ org_id: diffOrg.id }))
 
-    const { pets } = await sut.execute({ city: org.city })
+    const { pets } = await sut.execute({ city: org.city, page: 1 })
+    console.log(pets)
 
-    expect(pets).toHaveLength(2)
+    expect(pets).toHaveLength(10)
   })
 })

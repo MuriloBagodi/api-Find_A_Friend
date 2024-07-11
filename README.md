@@ -15,11 +15,11 @@ Será desenvolvido uma api para ajudar pessoas a encontrar um pet e adota-lo
 
 ## RNs (Regras de negocio) - Deve sempre estrar atrelado aos requisitos funcionais
 
-- [ ] Para listar os pets, obrigatoriamente precisamos informar a cidade
+- [x] Para listar os pets, obrigatoriamente precisamos informar a cidade
 - [x] Uma ORG precisa ter um endereço e um número de WhatsApp
 - [x] Um pet deve estar ligado a uma ORG
 - [ ] O usuário que quer adotar, entrará em contato com a ORG via WhatsApp
-- [ ] Todos os filtros, além da cidade, são opcionais
+- [x] Todos os filtros, além da cidade, são opcionais
 - [ ] Para uma ORG acessar a aplicação como admin, ela precisa estar logada
 
 ## RNFs (Requisitos não funcionais) - Requisitos no qual complementam a logica e o correto uso do app, evitar brechas

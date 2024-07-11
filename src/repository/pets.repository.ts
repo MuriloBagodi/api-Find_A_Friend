@@ -6,6 +6,7 @@ export interface FindAllParams {
   size?: string
   energy_level?: string
   environment?: string
+  page: number
 }
 
 export interface PetsRepository {
