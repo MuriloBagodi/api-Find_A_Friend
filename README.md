@@ -9,9 +9,9 @@ Será desenvolvido uma api para ajudar pessoas a encontrar um pet e adota-lo
 - [x] Deve ser possível se cadastrar como uma ORG
 - [ ] Deve ser possível realizar login como uma ORG
 - [x] Deve ser possível cadastrar um pet
-- [ ] Deve ser possível listar todos os pets disponíveis para adoção em uma cidade
-- [ ] Deve ser possível filtrar pets por suas características
-- [ ] Deve ser possível visualizar detalhes de um pet para adoção
+- [x] Deve ser possível listar todos os pets disponíveis para adoção em uma cidade
+- [x] Deve ser possível filtrar pets por suas características
+- [x] Deve ser possível visualizar detalhes de um pet para adoção
 
 ## RNs (Regras de negocio) - Deve sempre estrar atrelado aos requisitos funcionais
 
@@ -28,5 +28,5 @@ Será desenvolvido uma api para ajudar pessoas a encontrar um pet e adota-lo
 - [x] A aplicação precisa ser desenvolvida com TypeScript
 - [x] A aplicação precisa ser desenvolvida com NodeJs
 - [x] Os dados da aplicação precisão estar persistidos em um banco PgSql
-- [ ] Todas as listas de dados devem estar paginadas com 20 items por pagina
+- [x] Todas as listas de dados devem estar paginadas com 20 items por pagina
 - [ ] Usuario deve ser identificado por um JWT (Jason web token)
