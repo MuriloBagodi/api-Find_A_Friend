@@ -1,4 +1,6 @@
-import { FastifyRegister, FastifyReply, FastifyRequest } from 'fastify'
+import { InvalidCredentialsError } from '@/use-cases/errors/org-invalid-credentials.error'
+import { makeAuthenticateOrgUseCase } from '@/use-cases/factories/make-authenticate-org-use-case'
+import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
 
 export async function authenticate(req: FastifyRequest, res: FastifyReply) {
@@ -10,5 +12,42 @@ export async function authenticate(req: FastifyRequest, res: FastifyReply) {
   const { email, password } = authenticateBodySchema.parse(req.body)
 
   try {
-  } catch (err) {}
+    const authenticateUseCase = makeAuthenticateOrgUseCase()
+
+    const { org } = await authenticateUseCase.execute({ email, password })
+
+    const token = await res.jwtSign(
+      {},
+      {
+        sign: {
+          sub: org.id,
+        },
+      },
+    )
+
+    const refreshToken = await res.jwtSign(
+      {},
+      {
+        sign: {
+          sub: org.id,
+          expiresIn: '7d',
+        },
+      },
+    )
+
+    res.setCookie('refreshToken', refreshToken, {
+      path: '/',
+      httpOnly: true,
+      sameSite: true,
+      secure: true,
+    })
+
+    res.status(200).send({ token })
+  } catch (err) {
+    if (err instanceof InvalidCredentialsError) {
+      return res.status(400).send({ message: err.message })
+    }
+
+    throw err
+  }
 }

@@ -4,7 +4,7 @@ import { petsRoutes } from './http/controllers/Pets/pets.routes'
 import fastifyJwt from '@fastify/jwt'
 import { env } from './env'
 import fastifyCookie from '@fastify/cookie'
-import { ZodError } from 'zod/lib/ZodError'
+import { ZodError } from 'zod'
 
 export const app = fastify()
 
