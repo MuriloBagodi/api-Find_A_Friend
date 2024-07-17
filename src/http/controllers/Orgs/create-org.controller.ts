@@ -23,7 +23,6 @@ export async function createOrgController(
   req: FastifyRequest,
   res: FastifyReply,
 ) {
-  await req.jwtVerify()
   const body = bodySchema.parse(req.body)
 
   const createOrgUseCase = makeCreateOrgUseCase()

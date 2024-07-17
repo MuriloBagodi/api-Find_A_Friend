@@ -6,6 +6,6 @@ import { searchPets } from './search-pets.controllers'
 
 export async function petsRoutes(app: FastifyInstance) {
   app.post('/pet/create', { onRequest: [verifyJWT] }, createPetController)
-  app.get('/pet/get', getPet)
+  app.get('/pet/:id', getPet)
   app.get('/pet/search', searchPets)
 }

@@ -1,3 +1,4 @@
+import { OrgNotFoundError } from '@/use-cases/errors/org-not-found.error'
 import { makeCreatePetUseCase } from '@/use-cases/factories/make-create-pet-use-case'
 import { FastifyReply, FastifyRequest } from 'fastify'
 import { z } from 'zod'
@@ -20,11 +21,19 @@ export async function createPetController(
 
   const createPetUseCase = makeCreatePetUseCase()
 
+  const org_id = req.user.sub
+
   try {
-    const { pet } = await createPetUseCase.execute(body)
+    const { pet } = await createPetUseCase.execute({ ...body, org_id })
 
     res.status(201).send(pet)
   } catch (err) {
-    res.status(409).send({ message: err })
+    if (err instanceof OrgNotFoundError) {
+      return res.status(404).send({ message: err.message })
+    }
+
+    console.error(err)
+
+    return res.status(500).send({ message: 'Internal server error' })
   }
 }
