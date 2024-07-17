@@ -8,7 +8,7 @@ const routeSchema = z.object({
 })
 
 export async function getPet(req: FastifyRequest, res: FastifyReply) {
-  const { id } = routeSchema.parse(req.query)
+  const { id } = routeSchema.parse(req.params)
   const getPet = makeGetPetUseCase()
 
   try {

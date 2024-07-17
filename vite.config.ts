@@ -5,8 +5,8 @@ export default defineConfig({
   plugins: [tsconfigPaths()],
   test: {
     environmentMatchGlobs: [
-      ['src/routes/**', './vitest-environments/prisma.ts'],
+      ['./src/http/controllers/**', './vitest-environments/prisma.ts'],
     ],
-    dir: 'src', // Essa linha
+    dir: 'src',
   },
 })
